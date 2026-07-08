@@ -41,13 +41,7 @@ while True:
             else:
                 print(f"Student {student_name} is not present in the database")
     elif choice == "4" or choice == "delete student":
-        student_name = input("Enter student name: ")
-        delete_student = student_name
-        with open(path) as file:
-            content = file.read()
-            if student_name in content:
-                with open(path,'w') :
-                    file.write(" ")
+        print("Delete feature coming soon.")
     elif choice == "5" or choice == "exit":
         break
     else:

@@ -3,17 +3,16 @@ import math
 def percentage(mathematics,physics,english):
     marks_obtained = mathematics + physics + english
     total_marks = 300
-    percentage_obtained = (marks_obtained/total_marks)*100
+    percentage_obtained = str((marks_obtained/total_marks)*100)
     return percentage_obtained
 
-path = "C:\\abc\\SGMS.txt"
+path = "C:\\abc\\def\\SGMS.txt"
 print("====== Student Management System ======")
 print("1. add student"
       "\n2. view student"
       "\n3. search student"
       "\n4. delete student"
-      "\n5. save data"
-      "\n6. exit")
+      "\n5. exit")
 while True:
     choice = input("Enter your choice: ").lower()
     if choice == "1" or choice == "add student":
@@ -24,6 +23,11 @@ while True:
       physics = int(input("Enter physics marks: "))
       english = int(input("Enter english marks: "))
       percentage = percentage(mathematics, physics, english)
+      with open(path, 'a') as file:
+          file.write("\nStudent name: "+student_name)
+          file.write("\nAge: "+student_age)
+          file.write("\nClass: "+student_class)
+          file.write("\nPercentage: "+str(percentage))
     elif choice == "2" or choice == "view student":
         with open(path) as file:
             print(file.read())
@@ -44,6 +48,12 @@ while True:
             if student_name in content:
                 with open(path,'w') :
                     file.write(" ")
+    elif choice == "5" or choice == "exit":
+        break
+    else:
+        print("Please enter a valid choice")
+
+
 
 
 
